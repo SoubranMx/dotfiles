@@ -1,0 +1,2 @@
+#!/bin/bash
+nvim ~/dev/config/dotfiles/hypr/hyprland.conf

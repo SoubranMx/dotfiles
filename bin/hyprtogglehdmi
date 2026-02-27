@@ -1,0 +1,15 @@
+#!/bin/bash
+MONITOR="HDMI-A-1"
+
+export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+if hyprctl monitors | grep -q "$MONITOR (ID"; then
+    hyprctl keyword monitor "$MONITOR,disable"
+    sleep 0.5
+    notify-send "🖥️ Hyprland" "Monitor $MONITOR desactivado."
+else
+    hyprctl keyword monitor "$MONITOR,preferred,3440x0,1"
+    sleep 0.5
+    notify-send "🖥️ Hyprland" "Monitor $MONITOR activado."
+fi
