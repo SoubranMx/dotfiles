@@ -38,3 +38,4 @@ yay -S stow
 ```bash
 hyprland-configure
 ```
+
